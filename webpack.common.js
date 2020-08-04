@@ -6,14 +6,14 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
   entry: {
-    main: './src/main.ts',
+    main: './src/main.tsx',
     style: './src/style.scss',
     polyfills: './src/polyfills.ts',
   },
   module: {
     rules: [
       {
-        test: /\.ts$/,
+        test: /\.ts(x?)$/,
         use: [
           {
             loader: 'eslint-loader',
@@ -26,7 +26,7 @@ module.exports = {
         exclude: /node_modules/,
       },
       {
-        test: /\.ts$/,
+        test: /\.ts(x?)$/,
         use: [
           {
             loader: 'babel-loader',
@@ -77,6 +77,6 @@ module.exports = {
     }),
   ],
   resolve: {
-    extensions: ['.tsx', '.ts', '.js'],
+    extensions: ['.tsx', '.ts', '.jsx', '.js'],
   },
 };

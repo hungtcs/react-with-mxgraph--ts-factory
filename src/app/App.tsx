@@ -1,5 +1,6 @@
+import React, { Component } from 'react';
 
-export class Application {
+export class App extends Component {
 
   public hello(): void {
     console.log(
@@ -8,6 +9,10 @@ export class Application {
       'color: lightblue; background: red; padding: 0.5rem; font-size: 14px; font-weight: bold;',
       'color: white; background: darkgreen; padding: 0.5rem; font-size: 14px; font-weight: bold;',
     );
+  }
+
+  public render() {
+    return (<div>Hello!</div>);
   }
 
 }
