@@ -58,6 +58,23 @@ module.exports = {
           path.join(__dirname, './src/style.scss'),
         ],
       },
+      {
+        test: /\.s[ac]ss$/i,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+          },
+          {
+            loader: 'css-loader',
+          },
+          {
+            loader: 'sass-loader',
+          },
+        ],
+        include: [
+          path.join(__dirname, './src/app'),
+        ],
+      },
     ],
   },
   plugins: [
