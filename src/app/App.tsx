@@ -1,20 +1,20 @@
 import './App.scss';
-import mxgraphFactory from '../mxgraph';
+import mxgraphFactory from 'mxgraph';
 import React, { Component } from 'react';
 
 export class App extends Component {
   private containerRef: React.RefObject<HTMLDivElement> = React.createRef();
 
   public componentDidMount() {
+    (window as any)['mxBasePath'] = 'assets';
     const mx = mxgraphFactory({
       mxBasePath: 'assets',
-      mxLoadResources: false,
     });
+
+    mx.mxGraph;   // typeof mx.mxGraph is any
 
     const graph = new mx.mxGraph(this.containerRef.current);
     graph.setPanning(true);
-    mx.mxEvent.disableContextMenu(this.containerRef.current!);
-    new mx.mxRubberband(graph);
 
     const model = graph.getModel();
     const parent = graph.getDefaultParent();
